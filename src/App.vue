@@ -21,4 +21,7 @@
   box-sizing: border-box;
   font-family: Inter;
 }
+
+input {outline: none;}
+a {text-decoration: none;}
 </style>
