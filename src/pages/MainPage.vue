@@ -47,6 +47,10 @@ const infoDescription = computed(() => {
     margin-top: 110px;
     gap: 30px;
 
+    @media (max-width: 750px) {
+      width: 90%;
+    }
+
     .info__title {
       color: #000;
       font-size: 24px;

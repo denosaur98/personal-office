@@ -32,6 +32,10 @@ const selectedImages = computed(() => {
   width: 650px;
   height: 100%;
 
+  @media (max-width: 750px) {
+    width: 90%
+  }
+
   .slide-image {
     width: 100%;
     height: 100%;
