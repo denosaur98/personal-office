@@ -4,7 +4,7 @@
       <v-combobox 
         v-model="selectedItem"
         label="Введите название" 
-        :items="items" 
+        :items="cityTitles" 
         variant="outlined" 
         density="compact"
         v-model:menu="isDropdownOpen"
@@ -15,14 +15,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const items = ref([
-  'Москва', 'Санкт-Петербург', 'Нижний-Новгород', 'Казань', 'Екатеринбург', 'Новосибирск', 'Красноярск', 'Сочи', 'Волгоград', 'Краснодар'
-])
+import { ref, computed, watch } from 'vue';
+import CityData from '/server/city-data.json';
+import store from '../store/index';
 
 const selectedItem = ref(null)
 const isDropdownOpen = ref(false)
+
+const cityTitles = computed(() => {
+  return CityData.map(city => city.title)
+})
+watch(selectedItem, (newValue) => {
+  store.commit('SET_SELECTED', { isSelected: newValue })
+})
 </script>
 
 <style lang="scss" scoped>
@@ -41,5 +46,9 @@ const isDropdownOpen = ref(false)
       transform: rotate(-180deg);
     }
   }
+}
+
+:deep(.v-application__wrap) {
+  min-height: 100%;
 }
 </style>

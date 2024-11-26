@@ -6,6 +6,7 @@ export default createStore({
 			login: '',
 			password: '',
 			isAuthenticated: false,
+			isSelected: null,
 		}
 	},
 	mutations: {
@@ -17,6 +18,9 @@ export default createStore({
 		},
 		SET_AUTH_STATUS(state, payload) {
 			state.isAuthenticated = payload.isAuthenticated
+		},
+		SET_SELECTED(state, payload) {
+			state.isSelected = payload.isSelected
 		},
 	},
 	actions: {},
