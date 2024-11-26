@@ -6,6 +6,7 @@
       <h1 class="info__title">{{ infoTitle }}</h1>
       <p class="info__description">{{ infoDescription }}</p>
     </div>
+    <BaseSwiper v-if="infoTitle" class="swiper-wrapper"/>
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import { computed } from 'vue';
 import BaseHeader from '../components/BaseHeader';
 import BaseDropdown from '../components/BaseDropdown';
+import BaseSwiper from '../components/BaseSwiper.vue';
 import store from '../store/index';
 import CityData from '/server/city-data.json';
 
@@ -62,6 +64,10 @@ const infoDescription = computed(() => {
       letter-spacing: 0%;
       text-align: left;
     }
+  }
+
+  .swiper-wrapper {
+    margin: 50px 0;
   }
 }
 </style>
