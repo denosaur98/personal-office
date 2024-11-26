@@ -22,6 +22,9 @@ export default createStore({
 		SET_SELECTED(state, payload) {
 			state.isSelected = payload.isSelected
 		},
+		RESET_SELECTED(state) {
+			state.isSelected = null
+		},
 	},
 	actions: {},
 })

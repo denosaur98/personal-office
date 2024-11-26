@@ -1,12 +1,19 @@
 <template>
   <header class="base-header">
     <h1 class="header__username">Привет,  <span>{{ store.state.login }}</span></h1>
-    <RouterLink to="/auth" class="header__exit">Выйти</RouterLink>
+    <button to="/auth" class="header__exit" @click="exitProfile">Выйти</button>
   </header>
 </template>
 
 <script setup>
 import store from '../store/index.js';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+function exitProfile() {
+  store.commit('RESET_SELECTED')
+  router.push('/auth')
+}
 </script>
 
 <style lang="scss" scoped>
